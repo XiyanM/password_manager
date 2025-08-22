@@ -34,16 +34,17 @@ def encrypt(vault, fernet):
       with open("pass.json", "w") as f:
          json.dump(vault, f, indent=4)
 
-def add(service, username, password, path = "pass.json"):
-     with open(path, "r") as f:
-          vault = json.load(f)
+def add(service, username, password, fernet, path = "pass.json"):
+     vault = get_vault()
      vault[service] = {"username": username, "password": password}
      with open(path, "w") as f:
           json.dump(vault, f, indent=4)
+     encrypt(vault, fernet)
           
           
 
 def main():
+     fernet = get_fernet()
      userinput = input("Actions: add get list update delete\n")
      if userinput == "add":
           line = input("Format: service username password").strip()
@@ -51,7 +52,7 @@ def main():
           if len(items) != 3:
                return print("Please input exactly 3 fields.")
           service, username, password = items
-          add(items[0], items[1], items[2])
+          add(items[0], items[1], items[2], fernet)
 
           
      
