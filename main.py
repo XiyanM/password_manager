@@ -46,17 +46,33 @@ def add(service, username, password, fernet, path = "pass.json"):
 def main():
      fernet = get_fernet()
      userinput = input("Actions: add get list update delete\n")
+
      if userinput == "add":
           line = input("Format: service username password").strip()
           items = line.split()
           if len(items) != 3:
                return print("Please input exactly 3 fields.")
           service, username, password = items
-          add(items[0], items[1], items[2], fernet)
+          add(service, username, password, fernet)
+
+     if userinput == "get":
+          line = input("Input platform and username.").strip()
+          items = line.split()
+          if len(items) != 2:
+               return print("Please input exactly 2 fields.")
+          platform, username = items
+          vault = get_vault()
+          for service, info in vault.items():
+               if service == platform:
+                    if info["username"] == username:
+                         return print(fernet.decrypt(info["password"]).decode("utf-8"))
+        
+          
+          
 
           
-     
-main()
+if __name__ == "__main__":
+     main()     
 
 
 
