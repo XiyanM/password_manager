@@ -54,6 +54,7 @@ def main():
                return print("Please input exactly 3 fields.")
           service, username, password = items
           add(service, username, password, fernet)
+          return print("Added successfully.")
 
      if userinput == "get":
           line = input("Input platform and username.").strip()
@@ -66,6 +67,41 @@ def main():
                if service == platform:
                     if info["username"] == username:
                          return print(fernet.decrypt(info["password"]).decode("utf-8"))
+                    
+     if userinput == "list":
+          vault = get_vault()
+          print("Platforms:")
+          for service in vault:
+               print( service)
+
+     if userinput == "update":
+          line = input("Format: service username password\n").strip()
+          items = line.split()
+          service, username, password = items
+          if len(items) != 3:
+               return print("Please input exactly 3 fields.")
+          vault = get_vault()
+          if service not in vault:
+               print("No such service found.")
+          vault[service]["username"] = username
+          vault[service]["password"] = (fernet.encrypt(password.encode("utf-8"))).decode("utf-8")
+
+          with open("pass.json", "w") as f:
+               json.dump(vault, f, indent=4)
+          print("Information updated successfully.")
+
+     if userinput == "delete":
+          line = input("Input which service to delete.\n").strip()
+          vault = get_vault()
+          if line not in vault:
+               return print("No such service found.")
+          del vault[line]
+          with open("pass.json", "w") as f:
+               json.dump(vault, f, indent=4)
+          return print("Successfully deleted.")
+
+
+
         
           
           
