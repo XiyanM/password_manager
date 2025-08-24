@@ -23,31 +23,31 @@ Passwords are encrypted using Fernet (symmetric encryption) from the cryptograph
 
 ⸻
 
- Installation
+ • Installation
 
 Clone the repo and set up a virtual environment:
 
 git clone https://github.com/<your-username>/password_manager.git
 cd password_manager
 
-# create virtual environment
+ • create virtual environment
 python -m venv .venv
 source .venv/bin/activate   # mac/linux
 .venv\Scripts\activate      # windows
 
-# install dependencies
+ • install dependencies
 pip install -r requirements.txt
 
 
 ⸻
 
- Usage
+ • Usage
 
 Run the program:
 
 python main.py
 
-Example interaction:
+ • Example interaction:
 
 Actions: add get list update delete quit
 add
@@ -63,7 +63,7 @@ Added successfully.
 
 ⸻
 
- Project Structure
+ • Project Structure
 
 password_manager/
 │── main.py          # main program
@@ -76,7 +76,7 @@ password_manager/
 
 ⸻
 
- Future Improvements
+ • Future Improvements
 	•	Copy password to clipboard (pyperclip)
 	•	Multi-user support
 	•	GUI version (Tkinter / Flask webapp)
@@ -84,7 +84,7 @@ password_manager/
 
 ⸻
 
- Security Note
+ • Security Note
 
 This is a learning project. Don’t use it as your only password manager for sensitive accounts.
 
