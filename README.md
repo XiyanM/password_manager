@@ -68,8 +68,8 @@ Added successfully.
 
 ⸻
 
- • Project Structure
-
+• Project Structure
+```
 password_manager/
 │── main.py          # main program
 │── pass.json        # vault (auto-created, ignored in git)
@@ -77,7 +77,7 @@ password_manager/
 │── requirements.txt # dependencies
 │── .gitignore
 │── README.md
-
+```
 
 ⸻
 
