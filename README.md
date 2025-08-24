@@ -27,7 +27,7 @@ Passwords are encrypted using Fernet (symmetric encryption) from the cryptograph
 
 Clone the repo and set up a virtual environment:
 
-git clone https://github.com/<your-username>/password_manager.git
+git clone https://github.com/XiyanM/password_manager.git
 
 cd password_manager
 
