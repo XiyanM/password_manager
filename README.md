@@ -28,15 +28,16 @@ Passwords are encrypted using Fernet (symmetric encryption) from the cryptograph
 Clone the repo and set up a virtual environment:
 
 git clone https://github.com/<your-username>/password_manager.git
+
 cd password_manager
 
  • create virtual environment
  
 python -m venv .venv
 
-source .venv/bin/activate   # mac/linux
+source .venv/bin/activate         # mac/linux
 
-.venv\Scripts\activate      # windows
+.venv\Scripts\activate            # windows
 
  • install dependencies
  
