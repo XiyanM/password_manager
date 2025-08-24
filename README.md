@@ -51,9 +51,13 @@ Example interaction:
 
 Actions: add get list update delete quit
 add
+
 Service: gmail
+
 Username: johndoe
+
 Password (input hidden): ******
+
 Added successfully.
 
 
